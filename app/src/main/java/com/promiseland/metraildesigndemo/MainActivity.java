@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.promiseland.metraildesigndemo.bean.FragmentInfo;
+import com.promiseland.metraildesigndemo.fragment.BooksFragment;
 import com.promiseland.metraildesigndemo.fragment.HomeFragment;
 import com.promiseland.metraildesigndemo.fragment.MyFragment;
 import com.promiseland.metraildesigndemo.utils.LogUtil;
@@ -92,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.fragment_container, fragment);
                         break;
                     case FRAGMENT_BOOKS:
+                        fragment = BooksFragment.newInstance(TAB_BOOKS);
+                        transaction.replace(R.id.fragment_container, fragment);
                         break;
                     case FRAGMENT_MUSIC:
                         break;

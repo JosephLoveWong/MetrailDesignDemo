@@ -3,10 +3,14 @@ package com.promiseland.metraildesigndemo.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +44,7 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Snackbar comes out", Snackbar.LENGTH_LONG)
-                        .setAction("Action", new View.OnClickListener() {
+                        .setAction("shit", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Toast.makeText(
@@ -49,6 +53,31 @@ public class MyFragment extends Fragment {
                                         Toast.LENGTH_SHORT).show();
                             }
                         }).show();
+            }
+        });
+
+        final TextInputLayout til_pwd = (TextInputLayout) rootView.findViewById(R.id.til_pwd);
+        til_pwd.setHint("password");
+        EditText et_pwd = til_pwd.getEditText();
+        et_pwd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int i, int i1, int i2) {
+                if (s.length() > 4) {
+                    til_pwd.setError("Password error");
+                    til_pwd.setErrorEnabled(true);
+                } else {
+                    til_pwd.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
