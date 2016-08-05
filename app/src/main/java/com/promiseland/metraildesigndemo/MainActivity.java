@@ -14,6 +14,8 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.promiseland.metraildesigndemo.bean.FragmentInfo;
 import com.promiseland.metraildesigndemo.fragment.BooksFragment;
 import com.promiseland.metraildesigndemo.fragment.HomeFragment;
+import com.promiseland.metraildesigndemo.fragment.MoviesFragment;
+import com.promiseland.metraildesigndemo.fragment.MusicFragment;
 import com.promiseland.metraildesigndemo.fragment.MyFragment;
 import com.promiseland.metraildesigndemo.utils.LogUtil;
 
@@ -97,8 +99,12 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.fragment_container, fragment);
                         break;
                     case FRAGMENT_MUSIC:
+                        fragment = MusicFragment.newInstance(TAB_MUSIC);
+                        transaction.replace(R.id.fragment_container, fragment);
                         break;
                     case FRAGMENT_MOVIES:
+                        fragment = MoviesFragment.newInstance(TAB_MOVIES_TV);
+                        transaction.replace(R.id.fragment_container, fragment);
                         break;
                     case FRAGMENT_MY:
                         fragment = MyFragment.newInstance(TAB_MY);

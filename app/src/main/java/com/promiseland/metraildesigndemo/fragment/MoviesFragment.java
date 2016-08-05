@@ -3,10 +3,7 @@ package com.promiseland.metraildesigndemo.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,18 +21,18 @@ import java.util.List;
 /**
  * Created by 960100 on 2016/8/3.
  */
-public class BooksFragment extends Fragment{
-    private static final String TAG = "BooksFragment";
+public class MoviesFragment extends Fragment{
+    private static final String TAG = "MoviesFragment";
     private static final String KEY_NAME = "name";
 
     private List<String> mDatas;
 
-    public static BooksFragment newInstance(String name) {
+    public static MoviesFragment newInstance(String name) {
         
         Bundle args = new Bundle();
         args.putSerializable(KEY_NAME, name);
         
-        BooksFragment fragment = new BooksFragment();
+        MoviesFragment fragment = new MoviesFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,16 +50,8 @@ public class BooksFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_books, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
 
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        toolbar.setTitle(getArguments().getSerializable(KEY_NAME).toString());
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        RecyclerView recycleView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        recycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recycleView.setAdapter(new BooksAdapter());
 
         return rootView;
     }

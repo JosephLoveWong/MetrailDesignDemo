@@ -24,18 +24,18 @@ import java.util.List;
 /**
  * Created by 960100 on 2016/8/3.
  */
-public class BooksFragment extends Fragment{
-    private static final String TAG = "BooksFragment";
+public class MusicFragment extends Fragment{
+    private static final String TAG = "MusicFragment";
     private static final String KEY_NAME = "name";
 
     private List<String> mDatas;
 
-    public static BooksFragment newInstance(String name) {
+    public static MusicFragment newInstance(String name) {
         
         Bundle args = new Bundle();
         args.putSerializable(KEY_NAME, name);
         
-        BooksFragment fragment = new BooksFragment();
+        MusicFragment fragment = new MusicFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,7 +53,7 @@ public class BooksFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_books, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_music, container, false);
 
         Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         toolbar.setTitle(getArguments().getSerializable(KEY_NAME).toString());
